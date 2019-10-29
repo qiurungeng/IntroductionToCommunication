@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>通信概论作业</title>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/mycss.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/myjs.js"></script>
+    <script src="/js/echarts.min.js"></script>
+</head>
+<body>
+<div class="main container-fluid">
+    <div class="page-header" >
+        <h1>通信概论作业 <small>软英1701&nbsp;邱闰耿&nbsp;20175350</small></h1>
+    </div>
+
+    <div class="row">
+        <!--PCM-->
+        <h3 style="text-align: center">脉冲编码模拟调制</h3>
+        <hr>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入电平幅度..." id="PCM_encode">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" onclick="PCM_encode()">编码</button>
+                </span>
+            </div><!-- /input-group -->
+            <table class="table table-striped">
+                <tr><th>A律二进制折叠码的编码</th></tr>
+                <tr>
+                    <th>电平幅度(Vs)</th>
+                    <th>A律折叠二进制码</th>
+                    <th>量化误差</th>
+                </tr>
+                <tr>
+                    <td id="PCM_encode_Vs">0</td>
+                    <td id="PCM_encode_BinaryCode">0</td>
+                    <td id="PCM_encode_quantization_error">0</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入A律折叠二进制码..." id="PCM_decode">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" onclick="PCM_decode()">解码</button>
+                </span>
+            </div><!-- /input-group -->
+            <table class="table table-striped">
+                <tr>
+                    <th>A律折叠二进制码的解码</th>
+                </tr>
+                <tr>
+                    <th>电平幅度(Vs)</th>
+                    <th>A律折叠二进制码</th>
+<!--                    <th>量化误差</th>-->
+                </tr>
+                <tr>
+                    <td id="PCM_decode_Vs">-</td>
+                    <td id="PCM_decode_BinaryCode">-</td>
+<!--                    <td id="PCM_decode_quantization_error">-</td>-->
+                </tr>
+            </table>
+        </div>
+
+        <!--数字基带-->
+        <h3 style="text-align: center">数字基带信号编码</h3>
+
+        <hr>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入二进制信号..." id="digital_baseband_signal">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" onclick="digital_baseband_signal_encode()">编码</button>
+                </span>
+            </div>
+        </div>
+        <hr>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div id="HDB3" style="width: 600px;height:200px;">
+            </div>
+            <div id="Manchester" style="width: 600px;height:200px;">
+            </div>
+            <div id="Miller" style="width: 600px;height:200px;">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div id="AMI" style="width: 600px;height:200px;">
+            </div>
+            <div id="DifferentialBiPhase" style="width: 600px;height:200px;">
+            </div>
+            <div id="CMI" style="width: 600px;height:200px;">
+            </div>
+        </div>
+
+
+    </div><!-- /.col-lg-6 -->
+
+
+
+</div>
+
+
+</body>
+</html>
