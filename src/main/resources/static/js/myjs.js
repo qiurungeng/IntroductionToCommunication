@@ -55,6 +55,7 @@ function digital_baseband_signal_encode() {
  * Manchester码转图形
  */
 function manchester(code,result_array) {
+    var result=result_array.slice(0);
     //处理横坐标
     var a=code.split("");           //010 -> 0,1,0
     var x=a.join("|").split("");    //0,1,0 -> 0|1|0 ->0,|,1,|,0
@@ -71,13 +72,15 @@ function manchester(code,result_array) {
     // 基于准备好的dom，初始化echarts实例
     var Manchester = echarts.init(document.getElementById('Manchester'));
     // 指定图表的配置项和数据
-    show_chart(x,result_array,Manchester,"Manchester码");
+    show_chart(x,result_array,Manchester,"Manchester码:"+result);
 }
 
 /**
  * AMI码转图形
  */
 function ami(code,result_array) {
+    var result=result_array.slice(0);
+
     var x=code.split("");
     x.push("");
     //处理纵坐标
@@ -87,13 +90,14 @@ function ami(code,result_array) {
     // 基于准备好的dom，初始化echarts实例
     var AMI = echarts.init(document.getElementById('AMI'));
     // 指定图表的配置项和数据
-    show_chart(x,result_array,AMI,"AMI码");
+    show_chart(x,result_array,AMI,"AMI码:"+result);
 }
 
 /**
  * HDB3码转图形
  */
 function hdb3(code,result_array) {
+    var result=result_array.slice(0);
     var x=code.split("");
     x.push("");
     //处理纵坐标
@@ -103,13 +107,14 @@ function hdb3(code,result_array) {
     // 基于准备好的dom，初始化echarts实例
     var AMI = echarts.init(document.getElementById('HDB3'));
     // 指定图表的配置项和数据
-    show_chart(x,result_array,AMI,"HDB3码");
+    show_chart(x,result_array,AMI,"HDB3码:"+result);
 }
 
 /**
  * 差分双相码转图形
  */
 function differentialBiPhase(code,result_array) {
+    var result=result_array.slice(0);
     //处理横坐标
     var x=code.split("").join("|").split("");    //010 -> 0,1,0 -> 0|1|0 ->0,|,1,|,0
     for (i=0;i<x.length;i++){
@@ -125,13 +130,14 @@ function differentialBiPhase(code,result_array) {
     // 基于准备好的dom，初始化echarts实例
     var DifferentialBiPhase = echarts.init(document.getElementById('DifferentialBiPhase'));
     // 指定图表的配置项和数据
-    show_chart(x,result_array,DifferentialBiPhase,"差分双相码");
+    show_chart(x,result_array,DifferentialBiPhase,"差分双相码:"+result);
 }
 
 /**
  * 密勒码转图形
  */
 function miller(code,result_array) {
+    var result=result_array.slice(0);
     //处理横坐标
     var x=code.split("").join("|").split("");    //010 -> 0,1,0 -> 0|1|0 ->0,|,1,|,0
     for (i=0;i<x.length;i++){
@@ -147,7 +153,7 @@ function miller(code,result_array) {
     // 基于准备好的dom，初始化echarts实例
     var Miller = echarts.init(document.getElementById('Miller'));
     // 指定图表的配置项和数据
-    show_chart(x,result_array,Miller,"Miller码");
+    show_chart(x,result_array,Miller,"Miller码:"+result);
 }
 
 
@@ -155,6 +161,7 @@ function miller(code,result_array) {
  * CMI码转图形
  */
 function cmi(code,result_array) {
+    var result=result_array.slice(0);
     //处理横坐标
     var x=code.split("").join("|").split("");    //010 -> 0,1,0 -> 0|1|0 ->0,|,1,|,0
     for (i=0;i<x.length;i++){
@@ -170,7 +177,7 @@ function cmi(code,result_array) {
     // 基于准备好的dom，初始化echarts实例
     var CMI = echarts.init(document.getElementById('CMI'));
     // 指定图表的配置项和数据
-    show_chart(x,result_array,CMI,"CMI码");
+    show_chart(x,result_array,CMI,"CMI码:"+result);
 }
 
 function show_chart(x, y, chart,title) {

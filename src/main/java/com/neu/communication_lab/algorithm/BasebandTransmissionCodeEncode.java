@@ -32,7 +32,6 @@ public class BasebandTransmissionCodeEncode {
         int count=-1;    //前一个V码后的传号数目
         int[] result=new int[code.length()];
         for (int i=0;i<code.length();i++){
-
             if (code.charAt(i)==zero&&i<code.length()-3){
                 //该位为0,且不是最后的三位，对其接下来的3为进行判断
                 if (isContinuousZero(code.substring(i+1,i+4))){

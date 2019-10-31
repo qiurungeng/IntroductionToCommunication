@@ -8,10 +8,8 @@ public class PCM {
      */
     public static String encode(double Vs){
         String encodeResult=Vs>0?"1":"0";
-
         //抽样信号的电平绝对值
         double value=Math.abs(Vs)*2048;
-
         //计算该绝对值落在第几大段(0~7)
         double temp=value/16;
         int paragraph=0;
@@ -20,10 +18,8 @@ public class PCM {
             paragraph_pow2*=2;
         }
         paragraph=(int)(Math.log(paragraph_pow2)/Math.log(2));
-
         //用抽样电平信号减去该大段的下限值
         double remain=value-( paragraph>0 ? Math.pow(2,paragraph-1)*16 : 0 );
-
         //计算落在该大段的第几小段
         int step_length;    //小段的长度
         if (paragraph<=1){
@@ -32,7 +28,6 @@ public class PCM {
             step_length=(int)Math.pow(2,paragraph-1);
         }
         int step=(int)Math.floor(remain/step_length);
-
         //拼接并返回编码
         encodeResult+=Integer.toBinaryString(paragraph)+""+Integer.toBinaryString(step);
         return encodeResult;
@@ -50,8 +45,8 @@ public class PCM {
         //获得大段下限值和所在小段
         int[] floorAndStepLengthOfParagraph = getFloorAndStepLengthOfParagraph(paragraph);
         //解码结果即为该大段下限值加上所在小段的中点值
-//        double decode_result=(floorAndStepLengthOfParagraph[0]+(step+0.5)*floorAndStepLengthOfParagraph[1])/2048;
-        double decode_result=((double)(floorAndStepLengthOfParagraph[0]+step*floorAndStepLengthOfParagraph[1]))/2048;
+        double decode_result=((double)(floorAndStepLengthOfParagraph[0]+
+                step*floorAndStepLengthOfParagraph[1]))/2048;
         return decode_result;
     }
 
